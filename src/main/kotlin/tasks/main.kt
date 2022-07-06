@@ -5,11 +5,13 @@ fun main() {
     val maxAmount = 15_000.0
     val commission = 0.75
     val minCommission = 35.0
-    val isCard = true
+    val isCard = false
     var commissionAmount = 0.0
 
-    if (amount < maxAmount) {
-        if (isCard==true) {
+    if (isCard == false && amount > maxAmount) {
+        println("Перевод превышает максимальную сумму перевода!")
+    } else {
+        if (isCard == true) {
             commissionAmount = (amount * commission / 100)
             if (commissionAmount < minCommission) {
                 commissionAmount = minCommission
@@ -20,8 +22,5 @@ fun main() {
             commissionAmount = 0.0
         }
         println("Комиссия равна: $commissionAmount")
-    } else {
-        println("Перевод превышает максимальную сумму перевода!")
     }
-
 }
